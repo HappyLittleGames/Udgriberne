@@ -3,7 +3,17 @@ using System.Collections;
 
 public class Pause : MonoBehaviour {
 
-    
+    private bool m_IsRunning = true;
+    public bool IsRunning
+    {
+        get { return m_IsRunning; }
+        set
+        {
+            m_IsRunning = value;
+            LoseMenuReff.SetActive(!value);
+            IsPaused = true;
+        }
+    }
 
     private bool m_IsPaused = false;
     public bool IsPaused
@@ -29,19 +39,23 @@ public class Pause : MonoBehaviour {
 
     GameObject PauseMenuReff;
     GameObject NebulaReff;
+    GameObject LoseMenuReff;
     float OriginalFOV;
 
     void Start()
     {
         PauseMenuReff = FindObjectOfType<PauseMenu>().gameObject;
         PauseMenuReff.SetActive(false);
-        //NebulaReff = FindObjectOfType<>(); //FindObjectOfType<EndZone>().gameObject;
+        LoseMenuReff = FindObjectOfType<LoseMenu>().gameObject;
+        LoseMenuReff.SetActive(false);
+        NebulaReff = FindObjectOfType<NebulaScript>().gameObject;
         OriginalFOV = FindObjectOfType<Camera>().fieldOfView;
+        Time.timeScale = 1;
     }
 	
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && IsRunning)
         {
             PauseFunc();
         }
@@ -58,5 +72,10 @@ public class Pause : MonoBehaviour {
     {
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void RestartFunc()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HedmansScene");
     }
 }
