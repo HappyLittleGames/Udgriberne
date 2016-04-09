@@ -9,6 +9,7 @@ public class EndZone : MonoBehaviour
         {
             if (coll.gameObject.GetComponent<RocketController>().thrust > 0)
             {
+                FindObjectOfType<Pause>().IsRunning = false;
                 Debug.Log("Death");
             }
         }
