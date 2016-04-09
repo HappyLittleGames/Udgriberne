@@ -38,6 +38,9 @@ public class RocketController : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
+            if (m_thrust > 0)
+                FindObjectOfType<ScoreScript>().Score += 10;
+
             m_thrust = 0;
         }
     }

@@ -16,23 +16,25 @@ public class Pause : MonoBehaviour {
             if (m_IsPaused)
             {
                 Time.timeScale = 0;
-                FindObjectOfType<Camera>().fieldOfView = 40;
+                FindObjectOfType<Camera>().fieldOfView = OriginalFOV / 2;
             }
             else
             {
                 Time.timeScale = 1;
-                FindObjectOfType<Camera>().fieldOfView = 60;
+                FindObjectOfType<Camera>().fieldOfView = OriginalFOV;
             }
         }
 
     }
 
     GameObject PauseMenuReff;
+    float OriginalFOV;
 
     void Start()
     {
         PauseMenuReff = FindObjectOfType<PauseMenu>().gameObject;
         PauseMenuReff.SetActive(false);
+        OriginalFOV = FindObjectOfType<Camera>().fieldOfView;
     }
 	
 	void Update ()
