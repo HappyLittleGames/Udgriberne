@@ -20,6 +20,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &142280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429052}
+  - 114: {fileID: 11407786}
+  m_Layer: 0
+  m_Name: Fizzler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &144606
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,7 +68,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &412924
 Transform:
   m_ObjectHideFlags: 1
@@ -65,6 +81,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475330}
   m_RootOrder: 0
+--- !u!4 &429052
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142280}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
+  m_LocalPosition: {x: 0.07, y: -1.17, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 475330}
+  m_RootOrder: 2
 --- !u!4 &475330
 Transform:
   m_ObjectHideFlags: 1
@@ -77,6 +105,7 @@ Transform:
   m_Children:
   - {fileID: 412924}
   - {fileID: 498894}
+  - {fileID: 429052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &498894
@@ -86,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163026}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -1.28, z: -0}
+  m_LocalPosition: {x: 0, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 475330}
@@ -139,6 +168,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
+--- !u!114 &11407786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1977c533597cd469667cb0aa1d15b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_flareSize: 0.12
+  m_rocketFlares:
+  - {fileID: 134026, guid: 37d1f056abbcfdc4a9317286459d3774, type: 2}
+  - {fileID: 135876, guid: bf86604f7ed213948b6585fc17864101, type: 2}
+  - {fileID: 199678, guid: 7daca936ca4f2994bbdffb4740e19172, type: 2}
+  - {fileID: 115434, guid: 6159299b601f0794295ffdcd8913c12b, type: 2}
+  - {fileID: 166124, guid: 19bf9b44938f17840abce63fde3277ef, type: 2}
+  m_flareSpeed: 0.05
+  m_scaleFactor: 0.12
 --- !u!114 &11436540
 MonoBehaviour:
   m_ObjectHideFlags: 1
