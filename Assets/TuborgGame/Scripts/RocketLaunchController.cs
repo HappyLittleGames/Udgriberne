@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public class RocketLaunchController : MonoBehaviour {
 
-    [SerializeField] private Object m_rocketEntity;
-    [SerializeField] private GameObject[] m_targetLocation = new GameObject[8];
+    [SerializeField] private GameObject m_spawnPoint;
+    [SerializeField] private Object[] m_rocketEntity = new Object[2];
     private int[] m_spawnLocation = new int[8];
-    private bool m_rocketLaunched = false;
+    [SerializeField] private float m_delayTime = 1.5f;
+    private float m_currentTime = 0;
 	
     void Start()
     {
-        // Fill array with spawn locations with 45 degrees between each location
         for (int i = 0; i < m_spawnLocation.Length; i++)
         {
             if (i != 0)
@@ -25,25 +25,16 @@ public class RocketLaunchController : MonoBehaviour {
         }
     }
 
-	void FixedUpdate () {
-        if (m_rocketLaunched)
+	void FixedUpdate () {        
+        if (m_currentTime < m_delayTime)
         {
-            StartCoroutine(LaunchingDelay());
+            m_currentTime += Time.fixedDeltaTime;
         }else
         {
-            RandomRocketDirection();
             RocketLaunch();
-        }   
+            m_currentTime = 0;
+        }     
 	}
-
-    IEnumerator LaunchingDelay()
-    {
-        float baseDelayTime = 0.5f;
-        float maxDelayTime = 2.0f;
-        float delayTime = Random.Range(baseDelayTime, maxDelayTime);
-
-        yield return new WaitForSeconds(delayTime);
-    }
 
     private int RandomRocketDirection()
     {
@@ -55,7 +46,13 @@ public class RocketLaunchController : MonoBehaviour {
 
     private void RocketLaunch()
     {
-        m_rocketLaunched = true;
-        GameObject rocketInstance = (GameObject)Instantiate(m_rocketEntity, transform.position, transform.rotation);        
+        int rocketDirection = RandomRocketDirection();
+        
+        gameObject.transform.Rotate(new Vector3(0, 0, rocketDirection));
+
+        int rocketRand = Random.Range(0, m_rocketEntity.Length);
+        GameObject rocketInstance;
+        rocketInstance = (GameObject)Instantiate(m_rocketEntity[rocketRand], m_spawnPoint.transform.position, transform.rotation);
+        Destroy(rocketInstance, 5);
     }
 }
