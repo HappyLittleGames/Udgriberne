@@ -38,9 +38,12 @@ public class RocketController : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
+            GetComponentInChildren<GoShootFire>().EnginesOn = false;
             if (m_thrust > 0)
+            {
                 FindObjectOfType<ScoreScript>().Score += 10;
-
+                
+            }
             m_thrust = 0;
         }
     }
