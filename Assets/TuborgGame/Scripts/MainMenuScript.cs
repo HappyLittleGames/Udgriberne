@@ -7,7 +7,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartKey()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("JensSceneTheFifth");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HedmansScene");
     }
 
     public void StopKey()
