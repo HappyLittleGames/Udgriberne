@@ -9,6 +9,7 @@ public class RocketLaunchController : MonoBehaviour {
     private int[] m_spawnLocation = new int[8];
     [SerializeField] private float m_delayTime = 1.5f;
     private float m_currentTime = 0;
+    [SerializeField] private Object[] m_timeoutDestroySprite;
 	
     void Start()
     {
@@ -33,8 +34,8 @@ public class RocketLaunchController : MonoBehaviour {
         {
             RocketLaunch();
             m_currentTime = 0;
-        }     
-	}
+        }
+    }
 
     private int RandomRocketDirection()
     {
@@ -51,8 +52,8 @@ public class RocketLaunchController : MonoBehaviour {
         gameObject.transform.Rotate(new Vector3(0, 0, rocketDirection));
 
         int rocketRand = Random.Range(0, m_rocketEntity.Length);
-        GameObject rocketInstance;
-        rocketInstance = (GameObject)Instantiate(m_rocketEntity[rocketRand], m_spawnPoint.transform.position, transform.rotation);
-        Destroy(rocketInstance, 5);
+        GameObject rocketInstance = (GameObject)Instantiate(m_rocketEntity[rocketRand], m_spawnPoint.transform.position, transform.rotation);
+        
+        Destroy(rocketInstance, 5);        
     }
 }

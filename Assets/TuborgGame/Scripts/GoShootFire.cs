@@ -7,20 +7,19 @@ public class GoShootFire : MonoBehaviour
     [SerializeField] private float m_flareSize = 0.1f;
     [SerializeField] private Object[] m_rocketFlares;
     private bool m_spouting = true;
-    private Vector3 m_originalScale;
-    [SerializeField]
-    private float m_flareSpeed = 0.05f;
-    [SerializeField]
-    private float m_scaleFactor = 0.2f;
+    [SerializeField] private float m_flareSpeed = 0.05f;
+    [SerializeField] private float m_scaleFactor = 0.2f;
     private float m_timePassed = 0;
 
     private bool m_enginesOn = true; 
     public bool EnginesOn { set { m_enginesOn = value; } }
 
+    [SerializeField] private AudioClip[] m_audioClips;
+    private AudioSource m_audioSource = null;
 
     void Start()
     {
-        m_originalScale = transform.localScale;
+        m_audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -41,5 +40,22 @@ public class GoShootFire : MonoBehaviour
                 selfDestructor.DestructTime = m_flareSpeed;
             }
         }
+    }
+
+    void SetupAudio()
+    {
+        float mod = Random.Range(-0.2f, 0.2f);
+        m_audioSource.pitch += mod;
+        mod = Random.Range(-0.1f, 0.1f);
+        m_audioSource.volume += mod;
+    }
+
+    void JetSounds(AudioClip clip, AudioClip startClip, bool loop)
+    {
+        m_audioSource.clip = clip;
+        m_audioSource.loop = loop;
+
+        m_audioSource.PlayOneShot(startClip);
+        m_audioSource.Play(); // eller ska dä va wanShots å så?????
     }
 }
