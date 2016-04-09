@@ -4,21 +4,23 @@ using System.Collections;
 
 public class ScoreScript : MonoBehaviour {
 
+    private bool RunningCheck;
     public Text ScoreText;
-
     private int m_Score = 0;
     public int Score
     {
-        get { return m_Score; }
+        get { return FindObjectOfType<Pause>().PlayerScore; }
         set
         {
-            m_Score = value;
+            FindObjectOfType<Pause>().PlayerScore = value;
             SetScore();
         }
     }
 
+
     void Start()
     {
+        RunningCheck = FindObjectOfType<Pause>().IsRunning;
         ScoreText = GetComponent<Text>();
         SetScore();
     }
@@ -34,6 +36,10 @@ public class ScoreScript : MonoBehaviour {
         {
             Score += 10;
 
+        }
+        if (!RunningCheck)
+        {
+            ScoreText.text = "SKORE: " + Score;
         }
     }
 }

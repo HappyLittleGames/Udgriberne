@@ -3,6 +3,13 @@ using System.Collections;
 
 public class Pause : MonoBehaviour {
 
+    private int m_PlayerScore;
+    public int PlayerScore
+    {
+        get { return m_PlayerScore; }
+        set { m_PlayerScore = value; }
+    }
+
     private bool m_IsRunning = true;
     public bool IsRunning
     {
