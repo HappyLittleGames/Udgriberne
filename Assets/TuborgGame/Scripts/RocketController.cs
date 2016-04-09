@@ -22,6 +22,7 @@ public class RocketController : MonoBehaviour {
     {
         m_rigid = GetComponent<Rigidbody>();
         m_colBox = GetComponent<CapsuleCollider>();
+        m_audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -53,7 +54,7 @@ public class RocketController : MonoBehaviour {
                 FindObjectOfType<ScoreScript>().Score += 10;
                 
             }
-            m_audioSource.Stop();
+            // m_audioSource.Stop();
             // probarbyl spela upp nåt krash å bang?
             thrust = 0;
         }
