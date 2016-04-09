@@ -37,15 +37,20 @@ public class AngularMovement : MonoBehaviour {
         //float speed = (Mathf.Abs(transform.rotation.eulerAngles.z - m_rotObjects[m_rotIndex].transform.rotation.eulerAngles.z)) / m_rotSpeed;
 
         //transform.rotation = Quaternion.Euler(Vector3.RotateTowards(transform.rotation.eulerAngles, new Vector3(0, 0, m_rotTargets[m_rotIndex]), speed, 1f));
-        
-        float speed = Quaternion.Angle(transform.rotation, m_rotObjects[m_rotIndex].transform.rotation) * (m_rotSpeed * Time.fixedDeltaTime);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, m_rotObjects[m_rotIndex].transform.rotation, speed);
+
 
         if (m_isTraversing)
         {
             float amount = (180 / ( m_delayTime * 2)) * Time.fixedDeltaTime;
-            transform.Rotate(new Vector3(amount, 0 , 0));
+            transform.Rotate(new Vector3(0, amount, 0));
         }
+        else
+        {
+            float speed = Quaternion.Angle(transform.rotation, m_rotObjects[m_rotIndex].transform.rotation) * (m_rotSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, m_rotObjects[m_rotIndex].transform.rotation, speed);
+
+        }
+
     }
 
     void Update()
