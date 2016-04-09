@@ -176,7 +176,7 @@ GameObject:
   - 23: {fileID: 105102351}
   - 114: {fileID: 105102354}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: DeathZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1447,7 +1447,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434674, guid: 160779398cce38e46bc7c0d0a834ab60, type: 2}
       propertyPath: m_Speed
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 188244, guid: 160779398cce38e46bc7c0d0a834ab60, type: 2}
       propertyPath: m_IsActive
@@ -1456,6 +1456,10 @@ Prefab:
     - target: {fileID: 176224, guid: 160779398cce38e46bc7c0d0a834ab60, type: 2}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474346, guid: 160779398cce38e46bc7c0d0a834ab60, type: 2}
+      propertyPath: m_Speed
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13554862, guid: 160779398cce38e46bc7c0d0a834ab60, type: 2}
