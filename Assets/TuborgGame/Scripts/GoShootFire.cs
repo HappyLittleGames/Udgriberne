@@ -42,13 +42,17 @@ public class GoShootFire : MonoBehaviour
         }
     }
 
-    void JetSounds(AudioClip clip, AudioClip startClip, bool loop)
+    void SetupAudio()
     {
-        m_audioSource.clip = clip;
         float mod = Random.Range(-0.2f, 0.2f);
         m_audioSource.pitch += mod;
         mod = Random.Range(-0.1f, 0.1f);
         m_audioSource.volume += mod;
+    }
+
+    void JetSounds(AudioClip clip, AudioClip startClip, bool loop)
+    {
+        m_audioSource.clip = clip;
         m_audioSource.loop = loop;
 
         m_audioSource.PlayOneShot(startClip);
