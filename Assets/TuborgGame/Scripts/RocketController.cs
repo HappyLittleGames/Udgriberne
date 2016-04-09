@@ -4,6 +4,12 @@ using System.Collections;
 public class RocketController : MonoBehaviour {
 
     private float m_thrust = 2.0f;
+    public float thrust
+    {
+        get { return m_thrust; }
+        set { m_thrust = value; }
+    }
+
     private Rigidbody m_rigid;
     private CapsuleCollider m_colBox;
     private float m_colTimer = 1f;
@@ -39,12 +45,12 @@ public class RocketController : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             GetComponentInChildren<GoShootFire>().EnginesOn = false;
-            if (m_thrust > 0)
+            if (thrust > 0)
             {
                 FindObjectOfType<ScoreScript>().Score += 10;
                 
             }
-            m_thrust = 0;
+            thrust = 0;
         }
     }
 }
