@@ -184,6 +184,14 @@ Prefab:
       propertyPath: m_delayTime
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 419202, guid: 09ef0b165b01a47469f57009c9d86921, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448144, guid: 09ef0b165b01a47469f57009c9d86921, type: 2}
+      propertyPath: m_moonObject
+      value: 
+      objectReference: {fileID: 1423826768}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09ef0b165b01a47469f57009c9d86921, type: 2}
   m_IsPrefabParent: 0
@@ -322,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 476825156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.3692738, y: 1.369274, z: 1.369274}
   m_Children:
   - {fileID: 1427765256}
   - {fileID: 1365506204}
@@ -513,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 1365506203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.05, y: 0.03, z: 3.33}
-  m_LocalScale: {x: 0.6904046, y: 0.6904049, z: 0.6904049}
+  m_LocalScale: {x: 1.1000459, y: 1.100047, z: 1.100047}
   m_Children: []
   m_Father: {fileID: 476825160}
   m_RootOrder: 1
@@ -547,6 +555,10 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.922}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1423826768 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 181298, guid: 09ef0b165b01a47469f57009c9d86921, type: 2}
+  m_PrefabInternal: {fileID: 228928873}
 --- !u!1 &1427765255
 GameObject:
   m_ObjectHideFlags: 0
