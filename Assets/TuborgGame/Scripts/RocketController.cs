@@ -41,8 +41,7 @@ public class RocketController : MonoBehaviour {
             GetComponentInChildren<GoShootFire>().EnginesOn = false;
             if (m_thrust > 0)
             {
-                FindObjectOfType<ScoreScript>().Score += 10;
-                
+                FindObjectOfType<ScoreScript>().Score += 10;                
             }
             m_thrust = 0;
         }
