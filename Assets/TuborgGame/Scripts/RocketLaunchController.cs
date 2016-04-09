@@ -9,7 +9,6 @@ public class RocketLaunchController : MonoBehaviour {
     private int[] m_spawnLocation = new int[8];
     [SerializeField] private float m_delayTime = 1.5f;
     private float m_currentTime = 0;
-    [SerializeField] private Object[] m_timeoutDestroySprite;
 	
     void Start()
     {
@@ -53,7 +52,7 @@ public class RocketLaunchController : MonoBehaviour {
 
         int rocketRand = Random.Range(0, m_rocketEntity.Length);
         GameObject rocketInstance = (GameObject)Instantiate(m_rocketEntity[rocketRand], m_spawnPoint.transform.position, transform.rotation);
-        
-        Destroy(rocketInstance, 5);        
+
+        rocketInstance.GetComponent<RocketController>().DestroyTime = 5f;
     }
 }

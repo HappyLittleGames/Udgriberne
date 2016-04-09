@@ -15,6 +15,14 @@ public class RocketController : MonoBehaviour {
     private float m_colTimer = 1f;
     private float m_curColTimer = 0;
 
+    private float m_destroyTime;
+    public float DestroyTime
+    {
+        set { m_destroyTime = value; }
+    }
+
+    [SerializeField] private Object[] m_timeoutDestroySprite;
+
     [SerializeField] private AudioClip[] m_audioClips;
     private AudioSource m_audioSource = null;
 
@@ -22,6 +30,7 @@ public class RocketController : MonoBehaviour {
     {
         m_rigid = GetComponent<Rigidbody>();
         m_colBox = GetComponent<CapsuleCollider>();
+        StartCoroutine(SelfDestruct(m_destroyTime));
     }
 
     void FixedUpdate()
@@ -36,6 +45,12 @@ public class RocketController : MonoBehaviour {
         {
             EnableCollision();
         }
+    }
+
+    private IEnumerator SelfDestruct(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 
     private void EnableCollision()
