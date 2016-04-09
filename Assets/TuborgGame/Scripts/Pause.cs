@@ -28,12 +28,14 @@ public class Pause : MonoBehaviour {
     }
 
     GameObject PauseMenuReff;
+    GameObject NebulaReff;
     float OriginalFOV;
 
     void Start()
     {
         PauseMenuReff = FindObjectOfType<PauseMenu>().gameObject;
         PauseMenuReff.SetActive(false);
+        //NebulaReff = FindObjectOfType<>(); //FindObjectOfType<EndZone>().gameObject;
         OriginalFOV = FindObjectOfType<Camera>().fieldOfView;
     }
 	
@@ -49,6 +51,7 @@ public class Pause : MonoBehaviour {
     {
         IsPaused = !IsPaused;
         PauseMenuReff.SetActive(IsPaused);
+        NebulaReff.SetActive(!IsPaused);
     }
 
     public void QuitFunc()
