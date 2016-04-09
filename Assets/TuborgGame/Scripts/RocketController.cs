@@ -70,9 +70,11 @@ public class RocketController : MonoBehaviour {
             {
                 FindObjectOfType<ScoreScript>().Score += 10;                
             }
+
+            thrust = 0;
             m_audioSource.Stop();
             // probarbyl spela upp nåt krash å bang?
-            thrust = 0;
+            
         }
     }
 

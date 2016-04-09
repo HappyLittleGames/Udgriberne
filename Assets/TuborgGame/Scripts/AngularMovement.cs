@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class AngularMovement : MonoBehaviour {
 
+    [SerializeField] GameObject m_moonObject;
     [SerializeField] Object m_targetObject;
     [SerializeField] float m_rotSpeed = 5f;
     [SerializeField] int m_rotationSegments = 8;
@@ -14,10 +15,16 @@ public class AngularMovement : MonoBehaviour {
     private List<float> m_rotTargets = new List<float>();
     private GameObject[] m_rotObjects;
 
+    private bool m_innerRange = true;
+    private float m_rangeDiff = 2.5f;
+    private Vector3 m_startPos;
+
     private int m_rotIndex = 0;
 
     void Start ()
     {
+        m_startPos = transform.position;
+
         m_rotObjects = new GameObject[m_rotationSegments];
 
         for (int i = 0; i < m_rotationSegments; i++)
@@ -51,6 +58,15 @@ public class AngularMovement : MonoBehaviour {
 
         }
 
+        if (m_innerRange)
+        {
+            m_moonObject.transform.position += (new Vector3(m_startPos.x, 0f, 0f) * Time.fixedDeltaTime);
+        }
+        else
+        {
+            m_moonObject.transform.position += (new Vector3(m_startPos.x + m_rangeDiff, 0f, 0f) * Time.fixedDeltaTime);
+        }
+
     }
 
     void Update()
@@ -59,6 +75,7 @@ public class AngularMovement : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
+            m_innerRange = !m_innerRange;
             StartCoroutine(FlipSides());
         }
     }
