@@ -4,10 +4,19 @@ using System.Collections;
 public class RocketController : MonoBehaviour {
 
     private float m_thrust = 2.0f;
+    public float thrust
+    {
+        get { return m_thrust; }
+        set { m_thrust = value; }
+    }
+
     private Rigidbody m_rigid;
     private CapsuleCollider m_colBox;
     private float m_colTimer = 1f;
     private float m_curColTimer = 0;
+
+    [SerializeField] private AudioClip[] m_audioClips;
+    private AudioSource m_audioSource = null;
 
     void Start()
     {
@@ -39,11 +48,30 @@ public class RocketController : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             GetComponentInChildren<GoShootFire>().EnginesOn = false;
-            if (m_thrust > 0)
+            if (thrust > 0)
             {
                 FindObjectOfType<ScoreScript>().Score += 10;                
             }
-            m_thrust = 0;
+            m_audioSource.Stop();
+            // probarbyl spela upp nåt krash å bang?
+            thrust = 0;
         }
+    }
+
+    void SetupAudio()
+    {
+        float mod = Random.Range(-0.2f, 0.2f);
+        m_audioSource.pitch += mod;
+        mod = Random.Range(-0.1f, 0.1f);
+        m_audioSource.volume += mod;
+    }
+
+    void JetSounds(AudioClip clip, AudioClip startClip, bool loop)
+    {
+        m_audioSource.clip = clip;
+        m_audioSource.loop = loop;
+
+        m_audioSource.PlayOneShot(startClip);
+        m_audioSource.Play(); // eller ska dä va wanShots å så?????
     }
 }
