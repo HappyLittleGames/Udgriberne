@@ -21,6 +21,8 @@ public class RocketController : MonoBehaviour {
         set { m_destroyTime = value; }
     }
 
+    [SerializeField] private float m_pingPongDecay = .2f;
+
     [SerializeField] private Object[] m_timeoutDestroySprite;
 
     [SerializeField] private AudioClip[] m_audioClips;
@@ -33,6 +35,7 @@ public class RocketController : MonoBehaviour {
         m_colBox = GetComponent<CapsuleCollider>();
         StartCoroutine(SelfDestruct(m_destroyTime));
         m_musicSource = gameObject.AddComponent<AudioSource>();
+        m_musicSource.clip = m_audioClips[0];
 
         SetupAudio();
         JetSounds(true);
@@ -50,6 +53,11 @@ public class RocketController : MonoBehaviour {
         {
             EnableCollision();
         }
+    }
+
+    void Update()
+    {
+        m_musicSource.volume = Mathf.Clamp(m_musicSource.volume - (Time.deltaTime * m_pingPongDecay), 0, 1);
     }
 
     private IEnumerator SelfDestruct(float time)
@@ -109,6 +117,7 @@ public class RocketController : MonoBehaviour {
 
     void PlayExplosion()
     {
+        m_musicSource.volume = 1;
         m_musicSource.pitch = 1;
         m_musicSource.PlayOneShot(m_audioClips[Random.Range(0, m_audioClips.Length)]);
     }

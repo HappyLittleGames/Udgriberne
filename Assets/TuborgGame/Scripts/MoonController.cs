@@ -23,7 +23,7 @@ public class MoonController : MonoBehaviour
     bool InputJump;
 
     private Vector3 m_targetRot;
-    private bool m_flipped;
+    //private bool m_flipped;
 
     void GetInput()
     {
@@ -38,8 +38,8 @@ public class MoonController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            m_flipped = !m_flipped;
-            StartCoroutine(FlipSides(.2f));
+            //m_flipped = !m_flipped;
+            StartCoroutine(FlipSides(0.2f));
         }
     }
 
@@ -55,13 +55,11 @@ public class MoonController : MonoBehaviour
 
         if (InputJump)
         {
-            Vector3 m_targetRot = (m_flipped) ? new Vector3(0, 0, 0) : new Vector3(180, 0, 0);
-            float amount = (180 / .2f) * Time.fixedDeltaTime;
-            float xRotation = Vector3.RotateTowards(transform.rotation.eulerAngles, m_targetRot, amount, 1f).x;
-            transform.Rotate(new Vector3(xRotation, 0, 0));
+
+            float amount = (180 / (0.2f)) * Time.fixedDeltaTime;
+            transform.Rotate(new Vector3(0, amount, 0));
         }
     }
-
     private IEnumerator FlipSides(float delayTime)
     {
         InputJump = true;
