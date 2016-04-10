@@ -728,6 +728,7 @@ GameObject:
   - 124: {fileID: 812883577}
   - 81: {fileID: 812883576}
   - 114: {fileID: 812883581}
+  - 114: {fileID: 812883582}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -816,6 +817,17 @@ MonoBehaviour:
   m_xResolution: 800
   m_yResolution: 800
   m_fullScreen: 0
+--- !u!114 &812883582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812883575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21378b21d83e2f40a011969503627bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &987151819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,6 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78de337f3e27f5141a757d33984d6897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_difficultyRampTime: 0
   m_spawnPoint: {fileID: 181025984}
   m_rocketEntity:
   - {fileID: 159882, guid: 4546a7cbcd38f2c4d96a859bf959a0e2, type: 2}
