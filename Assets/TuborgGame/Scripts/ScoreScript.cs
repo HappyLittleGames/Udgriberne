@@ -39,7 +39,7 @@ public class ScoreScript : MonoBehaviour {
         }
         if (!RunningCheck)
         {
-            ScoreText.text = "SKORE: " + Score;
+            ScoreText.text = "you held back humanity for " + Score + " seconds.";
         }
     }
 }

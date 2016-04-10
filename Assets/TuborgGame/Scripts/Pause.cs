@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Pause : MonoBehaviour {
 
+    ScoreScript m_scoreScript;
+    private float m_hiddenScore = 0;
     private int m_PlayerScore;
     public int PlayerScore
     {
@@ -46,7 +48,7 @@ public class Pause : MonoBehaviour {
     }
 
     GameObject PauseMenuReff;
-    GameObject NebulaReff;
+    [SerializeField] GameObject NebulaReff;
     GameObject LoseMenuReff;
     float OriginalFOV;
 
@@ -56,11 +58,17 @@ public class Pause : MonoBehaviour {
         PauseMenuReff.SetActive(false);
         LoseMenuReff = FindObjectOfType<LoseMenu>().gameObject;
         LoseMenuReff.SetActive(false);
-        NebulaReff = FindObjectOfType<NebulaScript>().gameObject;
+        m_scoreScript = GameObject.FindGameObjectWithTag("Finish").GetComponent<ScoreScript>();
+        //NebulaReff = FindObjectOfType<NebulaScript>().gameObject;
         OriginalFOV = FindObjectOfType<Camera>().fieldOfView;
         Time.timeScale = 1;
     }
 	
+    void FixedUpdate()
+    {
+        GainScore();
+    }
+
 	void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsRunning)
@@ -85,5 +93,14 @@ public class Pause : MonoBehaviour {
     public void RestartFunc()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("HedmansScene");
+    }
+
+    void GainScore()
+    {
+        if (!IsPaused)
+        {
+            m_hiddenScore += Time.fixedDeltaTime;
+            m_scoreScript.Score = Mathf.RoundToInt(m_hiddenScore);
+        }
     }
 }
