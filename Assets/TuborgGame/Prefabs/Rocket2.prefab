@@ -158,6 +158,7 @@ MonoBehaviour:
   - {fileID: 166124, guid: 19bf9b44938f17840abce63fde3277ef, type: 2}
   m_flareSpeed: 0.05
   m_scaleFactor: 0.12
+  m_audioClips: []
 --- !u!114 &11436540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,6 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eef8bfc16108454e862b474bf0fd620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_timeoutDestroySprite:
+  - {fileID: 113858, guid: 8432f37c477d3da4797f4e70c79624e3, type: 2}
+  - {fileID: 122480, guid: 48b703a9cdcb9c5468a34eddd75be633, type: 2}
+  - {fileID: 195146, guid: df21f78dc70909144bcf3ffa32e42492, type: 2}
+  m_audioClips: []
 --- !u!136 &13658570
 CapsuleCollider:
   m_ObjectHideFlags: 1
