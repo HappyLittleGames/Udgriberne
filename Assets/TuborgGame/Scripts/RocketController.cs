@@ -28,9 +28,13 @@ public class RocketController : MonoBehaviour {
 
     void Start()
     {
+  
         m_rigid = GetComponent<Rigidbody>();
         m_colBox = GetComponent<CapsuleCollider>();
         StartCoroutine(SelfDestruct(m_destroyTime));
+
+        SetupAudio();
+        JetSounds(m_audioClips[0], true);
     }
 
     void FixedUpdate()
@@ -86,18 +90,20 @@ public class RocketController : MonoBehaviour {
 
     void SetupAudio()
     {
-        float mod = Random.Range(-0.2f, 0.2f);
+        m_audioSource = GetComponent<AudioSource>();
+        float mod = Random.Range(-0.1f, 0.40f);
         m_audioSource.pitch += mod;
         mod = Random.Range(-0.1f, 0.1f);
-        m_audioSource.volume += mod;
+        //m_audioSource.volume += mod;
+
     }
 
-    void JetSounds(AudioClip clip, AudioClip startClip, bool loop)
+    void JetSounds(AudioClip clip, /*AudioClip startClip,*/ bool loop)
     {
         m_audioSource.clip = clip;
         m_audioSource.loop = loop;
 
-        m_audioSource.PlayOneShot(startClip);
+        //m_audioSource.PlayOneShot(startClip);
         m_audioSource.Play(); // eller ska dä va wanShots å så?????
     }
 }

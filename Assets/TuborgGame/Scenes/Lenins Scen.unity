@@ -247,6 +247,7 @@ GameObject:
   - 33: {fileID: 476825159}
   - 135: {fileID: 476825158}
   - 23: {fileID: 476825157}
+  - 81: {fileID: 476825161}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -318,6 +319,13 @@ Transform:
   - {fileID: 1540856495}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!81 &476825161
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 476825156}
+  m_Enabled: 0
 --- !u!1 &621442878
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +335,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 621442880}
   - 212: {fileID: 621442879}
+  - 114: {fileID: 621442881}
   m_Layer: 0
   m_Name: map_sprite
   m_TagString: Untagged
@@ -376,6 +385,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &621442881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621442878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00bcd2f5c5ca62b499f6decfdf591dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotX: 0
+  m_rotY: 0
+  m_rotZ: 0
+--- !u!1 &761769621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 761769623}
+  - 81: {fileID: 761769622}
+  m_Layer: 0
+  m_Name: Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &761769622
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 761769621}
+  m_Enabled: 1
+--- !u!4 &761769623
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 761769621}
+  m_LocalRotation: {x: -0.70710665, y: 0, z: 0, w: 0.70710695}
+  m_LocalPosition: {x: 0, y: -0, z: -7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &812883575
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +445,6 @@ GameObject:
   - 20: {fileID: 812883579}
   - 92: {fileID: 812883578}
   - 124: {fileID: 812883577}
-  - 81: {fileID: 812883576}
   - 114: {fileID: 812883581}
   m_Layer: 0
   m_Name: Main Camera
@@ -396,13 +453,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &812883576
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 812883575}
-  m_Enabled: 1
 --- !u!124 &812883577
 Behaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +536,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1365506204}
   - 212: {fileID: 1365506205}
+  - 114: {fileID: 1365506206}
   m_Layer: 0
   m_Name: ring_sprite
   m_TagString: Untagged
@@ -535,6 +586,20 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0.922}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1365506206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1365506203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00bcd2f5c5ca62b499f6decfdf591dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotX: 0
+  m_rotY: 0
+  m_rotZ: 0.2
 --- !u!1 &1427765255
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rotX: 0
   m_rotY: 0
-  m_rotZ: -12
+  m_rotZ: -4
 --- !u!1001 &1434845245
 Prefab:
   m_ObjectHideFlags: 0
