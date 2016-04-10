@@ -50,6 +50,9 @@ public class RocketController : MonoBehaviour {
     private IEnumerator SelfDestruct(float time)
     {
         yield return new WaitForSeconds(time);
+
+        GameObject smoke = (GameObject)Instantiate(m_timeoutDestroySprite[Random.Range(0, m_timeoutDestroySprite.Length)], transform.position, transform.rotation);
+
         Destroy(gameObject);
     }
 
