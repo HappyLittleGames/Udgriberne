@@ -35,6 +35,7 @@ public class RocketController : MonoBehaviour {
         m_colBox = GetComponent<CapsuleCollider>();
         StartCoroutine(SelfDestruct(m_destroyTime));
         m_musicSource = gameObject.AddComponent<AudioSource>();
+        m_musicSource.clip = m_audioClips[0];
 
         SetupAudio();
         JetSounds(true);
