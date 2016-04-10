@@ -226,14 +226,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_timeoutDestroySprite:
-  - {fileID: 113858, guid: 8432f37c477d3da4797f4e70c79624e3, type: 2}
-  - {fileID: 122480, guid: 48b703a9cdcb9c5468a34eddd75be633, type: 2}
-  - {fileID: 195146, guid: df21f78dc70909144bcf3ffa32e42492, type: 2}
+  - {fileID: 156824, guid: 4f2b86feb8ca659418c8cc3486bd8241, type: 2}
+  - {fileID: 167140, guid: 3f0c53b974fa88643871d4a04c56d1bd, type: 2}
+  - {fileID: 138640, guid: 797575b4a3f56794c991da08a3188e6d, type: 2}
   m_audioClips:
-  - {fileID: 8300000, guid: e3397c1e822307245bf059dcb0d996cf, type: 3}
-  - {fileID: 8300000, guid: 121a04d59a930c149891508f53f020a0, type: 3}
-  - {fileID: 8300000, guid: 2ab21f6bb6f3eed458174e3537c73880, type: 3}
-  - {fileID: 8300000, guid: 7e31d7465e707c545aa80abb8132a148, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11461494
 MonoBehaviour:
   m_ObjectHideFlags: 1
