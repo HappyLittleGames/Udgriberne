@@ -30,6 +30,7 @@ public class Pause : MonoBehaviour {
         {
             m_IsPaused = value;
             Cursor.visible = value;
+            NebulaReff.SetActive(!IsPaused);
             if (m_IsPaused)
             {
                 Time.timeScale = 0;
@@ -72,13 +73,13 @@ public class Pause : MonoBehaviour {
     {
         IsPaused = !IsPaused;
         PauseMenuReff.SetActive(IsPaused);
-        NebulaReff.SetActive(!IsPaused);
+        
     }
 
     public void QuitFunc()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void RestartFunc()

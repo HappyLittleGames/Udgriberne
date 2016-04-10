@@ -13,7 +13,7 @@ public class MoonControllerHeight : MonoBehaviour {
     }
     [SerializeField]
     [Range(0f, 10f)]
-    private float m_MinHeight = 2;
+    private float m_MinHeight = .5f;
     public float MinHeight
     {
         get { return m_MinHeight; }
