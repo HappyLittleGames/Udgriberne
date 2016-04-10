@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoonController : MonoBehaviour {
+public class MoonController : MonoBehaviour
+{
 
     private float m_SpeedMod = 1;
     public float SpeedMod
@@ -21,6 +22,9 @@ public class MoonController : MonoBehaviour {
     int InputMove = 0;
     bool InputJump;
 
+    private Vector3 m_targetRot;
+    private bool m_flipped;
+
     void GetInput()
     {
         if (Input.GetKey(KeyCode.RightArrow))
@@ -33,7 +37,10 @@ public class MoonController : MonoBehaviour {
         { InputMove = 0; }
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
-        { InputJump = true; }
+        {
+            m_flipped = !m_flipped;
+            StartCoroutine(FlipSides(.2f));
+        }
     }
 
     void Update()
@@ -41,15 +48,26 @@ public class MoonController : MonoBehaviour {
         GetInput();
     }
 
-    void FixedUpdate ()
+    void FixedUpdate()
     {
-        
+
         transform.Rotate(0, 0, InputMove * SpeedMod);
-        if(InputJump)
+
+        if (InputJump)
         {
-            transform.Rotate(0, 0, 180);
-            InputJump = false;
+            Vector3 m_targetRot = (m_flipped) ? new Vector3(0, 0, 0) : new Vector3(180, 0, 0);
+            float amount = (180 / .2f) * Time.fixedDeltaTime;
+            float xRotation = Vector3.RotateTowards(transform.rotation.eulerAngles, m_targetRot, amount, 1f).x;
+            transform.Rotate(new Vector3(xRotation, 0, 0));
         }
-	}
-    
+    }
+
+    private IEnumerator FlipSides(float delayTime)
+    {
+        InputJump = true;
+
+        yield return new WaitForSeconds(delayTime);
+
+        InputJump = false;
+    }
 }

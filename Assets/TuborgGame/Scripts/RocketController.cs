@@ -25,6 +25,7 @@ public class RocketController : MonoBehaviour {
 
     [SerializeField] private AudioClip[] m_audioClips;
     private AudioSource m_audioSource = null;
+    private AudioSource m_musicSource = null;
 
     void Start()
     {
@@ -32,9 +33,10 @@ public class RocketController : MonoBehaviour {
         m_rigid = GetComponent<Rigidbody>();
         m_colBox = GetComponent<CapsuleCollider>();
         StartCoroutine(SelfDestruct(m_destroyTime));
+        m_musicSource = gameObject.AddComponent<AudioSource>();
 
         SetupAudio();
-        JetSounds(m_audioClips[0], true);
+        JetSounds(true);
     }
 
     void FixedUpdate()
@@ -83,9 +85,10 @@ public class RocketController : MonoBehaviour {
             }
 
             thrust = 0;
-            //m_audioSource.Stop();
+            m_audioSource.Stop();
+            PlayExplosion();
             // probarbyl spela upp nåt krash å bang?
-            
+
         }
     }
 
@@ -99,12 +102,18 @@ public class RocketController : MonoBehaviour {
 
     }
 
-    void JetSounds(AudioClip clip, /*AudioClip startClip,*/ bool loop)
+    void JetSounds(/*AudioClip clip, AudioClip startClip,*/ bool loop)
     {
-        m_audioSource.clip = clip;
+        //m_audioSource.clip = clip;
         m_audioSource.loop = loop;
 
         //m_audioSource.PlayOneShot(startClip);
         m_audioSource.Play(); // eller ska dä va wanShots å så?????
+    }
+
+    void PlayExplosion()
+    {
+        m_musicSource.pitch = 1;
+        m_musicSource.PlayOneShot(m_audioClips[Random.Range(0, m_audioClips.Length)]);
     }
 }
