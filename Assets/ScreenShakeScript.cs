@@ -1,0 +1,47 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class ScreenShakeScript : MonoBehaviour {
+
+    // Use this for initialization
+    float ShakeDuration;
+    float ShakeCount;
+    float ShakeAmount;
+    float ShakeAngle;
+    Quaternion Origin;
+
+    void Start ()
+    {
+        ShakeAmount = .05f;
+        Origin = transform.localRotation;
+        ShakeDuration = .1f;
+        ShakeCount = 0;
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate ()
+    {
+        if(ShakeCount < ShakeDuration)
+        {
+            transform.localRotation = Quaternion.Euler(Random.insideUnitSphere * ShakeAmount);
+
+            //ShakeAngle = (ShakeAngle + Mathf.PI * 0.7f) % (Mathf.PI * 2f);
+            //transform.rotation *= Quaternion.Euler(Mathf.Cos(ShakeAngle) * ShakeAmount, Mathf.Sin(ShakeAngle) * ShakeAmount, 0f​);
+        }
+        else
+        {
+            transform.localRotation = Origin;
+        }
+        
+	}
+
+    void Update()
+    {
+        ShakeCount += Time.deltaTime;
+    }
+
+    public void StartShake()
+    {
+        ShakeCount = 0;
+    }
+}

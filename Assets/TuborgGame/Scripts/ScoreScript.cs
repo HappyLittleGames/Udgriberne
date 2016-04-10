@@ -35,6 +35,7 @@ public class ScoreScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             Score += 10;
+            FindObjectOfType<ScreenShakeScript>().StartShake();
 
         }
         if (!RunningCheck)
