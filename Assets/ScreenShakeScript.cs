@@ -27,7 +27,6 @@ public class ScreenShakeScript : MonoBehaviour {
         else
         {
             transform.localRotation = Origin;
-            //FindObjectOfType<ScreenShakeScript>().StartShake();
         }
         
 	}

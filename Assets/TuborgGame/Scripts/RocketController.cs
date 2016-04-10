@@ -78,7 +78,8 @@ public class RocketController : MonoBehaviour {
             GetComponentInChildren<GoShootFire>().EnginesOn = false;
             if (thrust > 0)
             {
-                FindObjectOfType<ScoreScript>().Score += 10;                
+                FindObjectOfType<ScoreScript>().Score += 10;
+                FindObjectOfType<ScreenShakeScript>().StartShake();
             }
 
             thrust = 0;
