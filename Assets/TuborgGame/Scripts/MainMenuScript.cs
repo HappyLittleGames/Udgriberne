@@ -7,6 +7,8 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] AudioClip[] m_audioClips;
     private AudioSource m_audioSource;
 
+    
+
     void Start()
     {
         m_audioSource = gameObject.GetComponent<AudioSource>();
@@ -19,9 +21,11 @@ public class MainMenuScript : MonoBehaviour
 
     }
 
-    public void OnMouseOver()
+    public void OnMouseEnter()
     {
-        m_audioSource.PlayOneShot(m_audioClips[2]);
+        
+        m_audioSource.PlayOneShot(m_audioClips[2], 0.3f);
+        
         Debug.Log("hovhands");
     }
 

@@ -30,8 +30,7 @@ public class RocketController : MonoBehaviour {
     private AudioSource m_musicSource = null;
 
     void Start()
-    {
-  
+    {  
         m_rigid = GetComponent<Rigidbody>();
         m_colBox = GetComponent<CapsuleCollider>();
         StartCoroutine(SelfDestruct(m_destroyTime));
@@ -63,14 +62,12 @@ public class RocketController : MonoBehaviour {
     private IEnumerator SelfDestruct(float time)
     {
         yield return new WaitForSeconds(time);
-        
-        for (int i = 0; i < m_timeoutDestroySprite.Length; i++)
-        {
-            GameObject explosion = Instantiate(m_timeoutDestroySprite[i], transform.position, transform.rotation) as GameObject;
+                
+        GameObject explosion = Instantiate(m_timeoutDestroySprite[Random.Range(0, m_timeoutDestroySprite.Length)], transform.position, transform.rotation) as GameObject;
 
-            SelfDestructor selfDest = explosion.AddComponent<SelfDestructor>();
-            selfDest.DestructTime = 0.5f;
-        }
+        SelfDestructor selfDest = explosion.AddComponent<SelfDestructor>();
+        selfDest.DestructTime = 0.25f;
+        
        
         Destroy(gameObject);
     }
@@ -95,7 +92,6 @@ public class RocketController : MonoBehaviour {
             m_audioSource.Stop();
             PlayExplosion();
             // probarbyl spela upp nåt krash å bang?
-
         }
     }
 
