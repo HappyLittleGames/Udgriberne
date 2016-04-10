@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class RocketLaunchController : MonoBehaviour {
 
+    [SerializeField] private float m_difficultyRampTime;
     [SerializeField] private GameObject m_spawnPoint;
     [SerializeField] private Object[] m_rocketEntity = new Object[2];
     private int[] m_spawnLocation = new int[8];
@@ -33,6 +34,7 @@ public class RocketLaunchController : MonoBehaviour {
         {
             RocketLaunch();
             m_currentTime = 0;
+            m_delayTime = Mathf.Clamp((m_delayTime * 0.95f), 0.05f, 10f);
         }
     }
 
@@ -54,5 +56,15 @@ public class RocketLaunchController : MonoBehaviour {
         GameObject rocketInstance = (GameObject)Instantiate(m_rocketEntity[rocketRand], m_spawnPoint.transform.position, transform.rotation);
 
         rocketInstance.GetComponent<RocketController>().DestroyTime = 5f;
+
+        if (Time.timeSinceLevelLoad > m_difficultyRampTime)
+        {
+            float torqueForce = 50;
+            int strangeRocket = Random.Range(0, 2);
+            if (strangeRocket == 0)
+            {
+                rocketInstance.GetComponent<Rigidbody>().AddTorque(new Vector3(0f, 0f, (torqueForce * Random.Range(-1, 1))));
+            }
+        }
     }
 }
