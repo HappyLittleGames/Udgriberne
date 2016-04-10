@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eef8bfc16108454e862b474bf0fd620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_pingPongDecay: 0.3
   m_timeoutDestroySprite:
   - {fileID: 113858, guid: 8432f37c477d3da4797f4e70c79624e3, type: 2}
   - {fileID: 122480, guid: 48b703a9cdcb9c5468a34eddd75be633, type: 2}
@@ -274,7 +275,7 @@ AudioLowPassFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159882}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_LowpassResonanceQ: 1
   lowpassLevelCustomCurve:
