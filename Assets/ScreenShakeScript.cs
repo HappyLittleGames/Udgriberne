@@ -7,7 +7,6 @@ public class ScreenShakeScript : MonoBehaviour {
     float ShakeDuration;
     float ShakeCount;
     float ShakeAmount;
-    float ShakeAngle;
     Quaternion Origin;
 
     void Start ()
@@ -24,9 +23,6 @@ public class ScreenShakeScript : MonoBehaviour {
         if(ShakeCount < ShakeDuration)
         {
             transform.localRotation = Quaternion.Euler(Random.insideUnitSphere * ShakeAmount);
-
-            //ShakeAngle = (ShakeAngle + Mathf.PI * 0.7f) % (Mathf.PI * 2f);
-            //transform.rotation *= Quaternion.Euler(Mathf.Cos(ShakeAngle) * ShakeAmount, Mathf.Sin(ShakeAngle) * ShakeAmount, 0f​);
         }
         else
         {
