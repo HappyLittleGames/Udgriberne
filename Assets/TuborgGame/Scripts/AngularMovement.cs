@@ -58,14 +58,14 @@ public class AngularMovement : MonoBehaviour {
 
         }
 
-        if (m_innerRange)
-        {
-            m_moonObject.transform.position += (new Vector3(m_startPos.x, 0f, 0f) * Time.fixedDeltaTime);
-        }
-        else
-        {
-            m_moonObject.transform.position += (new Vector3(m_startPos.x + m_rangeDiff, 0f, 0f) * Time.fixedDeltaTime);
-        }
+        //if (m_innerRange)
+        //{
+        //    m_moonObject.transform.position += (new Vector3(m_startPos.x, 0f, 0f) * Time.fixedDeltaTime);
+        //}
+        //else
+        //{
+        //    m_moonObject.transform.position += (new Vector3(m_rangeDiff, 0f, 0f) * Time.fixedDeltaTime);
+        //}
 
     }
 
