@@ -13,7 +13,7 @@ public class MainMenuScript : MonoBehaviour
     public void StopKey()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
 }
