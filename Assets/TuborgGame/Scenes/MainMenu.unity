@@ -1011,6 +1011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6eda474a83b96459e57bb3e37b36c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_xResolution: 800
-  m_yResolution: 800
+  m_xResolution: 975
+  m_yResolution: 975
   m_fullScreen: 0

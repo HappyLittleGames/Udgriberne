@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class MainMenuScript : MonoBehaviour
-{
+public class MenuSounds : MonoBehaviour {
+
     [SerializeField] AudioClip[] m_audioClips;
     private AudioSource m_audioSource;
-
-    
 
     void Start()
     {
@@ -17,23 +14,20 @@ public class MainMenuScript : MonoBehaviour
     public void StartKey()
     {
         m_audioSource.PlayOneShot(m_audioClips[0], 0.05f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("HedmansScene");
-
+ 
     }
 
     public void OnMouseEnter()
     {
-        
+
         m_audioSource.PlayOneShot(m_audioClips[2], 0.05f);
-        
+
         Debug.Log("hovhands");
     }
 
     public void StopKey()
     {
         m_audioSource.PlayOneShot(m_audioClips[1], 0.05f);
-        Application.Quit();
-        //UnityEditor.EditorApplication.isPlaying = false;
     }
-
 }
+
