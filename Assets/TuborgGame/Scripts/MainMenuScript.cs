@@ -24,9 +24,7 @@ public class MainMenuScript : MonoBehaviour
     public void OnMouseEnter()
     {
         
-        m_audioSource.PlayOneShot(m_audioClips[2], 0.05f);
-        
-        Debug.Log("hovhands");
+        m_audioSource.PlayOneShot(m_audioClips[2], 0.3f);
     }
 
     public void StopKey()

@@ -1,0 +1,9 @@
+diff a/Assets/TuborgGame/Scripts/Pause.cs b/Assets/TuborgGame/Scripts/Pause.cs	(rejected hunks)
+@@ -51,6 +51,7 @@
+     {
+         IsPaused = !IsPaused;
+         PauseMenuReff.SetActive(IsPaused);
++        NebulaReff.SetActive(!IsPaused);
+     }
+ 
+     public void QuitFunc()
